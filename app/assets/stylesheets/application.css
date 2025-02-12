@@ -1,10 +1,35 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+.image-item {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: scale(0.99);
+}
+.image-item.active {
+  opacity: 1;
+  position: relative;
+}
+
+
+.image-item.active img[src*="project21.jpg"] {
+  animation: fadeInZoom 1.2s ease-in-out;
+}
+
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.image-item.active img[src*="project23.jpg"] {
+  animation: slideInRight 1s ease-in-out;
+}
+html {
+  scroll-behavior: smooth;
+}
