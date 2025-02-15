@@ -8,4 +8,5 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.new(username:"admin",email:"admin@gmail.com",password:"passWORD").save
+User.new(username:"admin",email:"admin@gmail.com",password:"passWORD").save!
+puts "user saved"

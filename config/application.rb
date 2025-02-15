@@ -1,7 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
-
+require 'pdfkit'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -15,7 +15,7 @@ module Portfolio
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
-
+    config.middleware.use PDFKit::Middleware, print_media_type: true
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

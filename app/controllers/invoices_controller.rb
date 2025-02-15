@@ -6,13 +6,12 @@ class InvoicesController < ApplicationController
   end
 
   def create
-    Rails.logger.debug "Params received: #{params.inspect}"
-    @invoice = Invoice.new(invoice_params)
+    @invoice = @project.invoices.new(invoice_params)
 
     if @invoice.save
       redirect_to project_invoice_path(@invoice.project_id, @invoice.id)
     else
-      flash[:error] = "Something went wrong", @invoice.errors.full_messages
+      flash[:error] = @invoice.errors.full_messages
       redirect_to new_project_invoice_path
     end
   end
@@ -42,8 +41,6 @@ class InvoicesController < ApplicationController
   
     if @invoice.destroy
       flash[:success] = "Invoice deleted successfully"
-    else
-      flash[:error] = "Failed to delete invoice"
     end
   
     redirect_to project_invoices_path(@project.id) # Ensure the path is correct

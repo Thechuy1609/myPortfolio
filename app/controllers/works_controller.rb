@@ -1,5 +1,5 @@
 class WorksController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :destroy, :create]
+  skip_before_action :authenticate_user!, only: [:show, :destroy, :create]
   def create
     if user_signed_in?
     @work = current_user.works.build(work_params)

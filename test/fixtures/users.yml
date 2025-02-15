@@ -1,14 +1,9 @@
-# admins.yml (Example)
+
 one:
   email: admin1@example.com
-  # ... other attributes
 
 two:
   email: admin2@example.com
-  # ... other attributes
 
 three:
-  email: admin3@example.com  # Even if you have more complex logic, ensure uniqueness
-  # ... other attributes
-
-# ... and so on for all your admin fixturesx
+  email: admin3@example.com 
